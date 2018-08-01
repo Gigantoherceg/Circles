@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta name="description" content="Random circles drawing">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Circles randomizer</title>
+</head>
+<body>
+  <div id="cont1" Class="container">
+    <div class="canv canvCircle">
+      <canvas id="circles" height="480" width="640" style="border: 1px solid black"></canvas>
+    </div>
+    <div id='circle' class="divWorlds">
+        <h3>Ez egy sok-sok karikát tartalmazó rajzlap.<br>
+        Amikor frissítjük az oldalt, akkor mindig más sugarú és színű karikák jelennek meg.</h3>            
+    </div>
+  </div>
+
+<script>
+var canvas = document.getElementById('circles');
+var context = canvas.getContext('2d');
+
+var cW = canvas.width;
+var cH = canvas.height;
+var radius = Math.floor(Math.random() * 100)+10;
+var circleNumber = Math.floor(Math.random() * 100)+1;
+      
+function circle(x,y, radius, color) {  
+  context.strokeStyle = color;
+  context.beginPath();
+  context.arc(x,y,radius,0,2*Math.PI);
+  context.stroke();
+}
+
+for (j = 1; j <= circleNumber; j++) {
+  x = Math.floor(Math.random() * (cW-2*radius)) + radius;
+  y = Math.floor(Math.random() * (cH-2*radius)) + radius;
+  r = Math.floor(Math.random() * 255);
+  g = Math.floor(Math.random() * 255);
+  b = Math.floor(Math.random() * 255);
+  a = (Math.floor(Math.random() * 10) + 1)/10;
+  circle(x,y,radius,'rgba('+r+','+g+','+b+','+a+')');  
+}
+</script>
+       
+</body>
+</html>
