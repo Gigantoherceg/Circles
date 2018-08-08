@@ -1,4 +1,4 @@
-var canvas = document.getElementById('Cilrcles');
+var canvas = document.getElementById('cirlces');
 var context = canvas.getContext('2d');
 
 var cW = canvas.width;
@@ -21,5 +21,5 @@ for (j = 1; j <= circleNumber; j++) {
   g = Math.floor(Math.random() * 255);
   b = Math.floor(Math.random() * 255);
   a = (Math.floor(Math.random() * 10) + 1)/10;
-  circle(x,y,radius,'rgba('+r+','+g+','+b+','+a+')');  
+  circle(x,y,radius,'rgba('+r+','+g+','+b+','+a+')');
 }

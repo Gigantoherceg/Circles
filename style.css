@@ -46,29 +46,55 @@ table {
 
 /* CSS reset end*/
 
+
 * {
 	box-sizing: border-box;
 }
 
 body {
-	padding: 10px;
+    background-color: burlywood;
 }
 
 .container {
-    position: relative;
-}
-
-.canvCircle {
-  position: absolute;
-  top: 0;
-  left: 400px;
+    text-align: center;
 }
 
 .divWorlds {
-    height: 480px;
-    max-width: 400px;
+    padding: 1rem;
 }
 
-.canvCircle {
-    background-color: rgba(101, 156, 201, 0.1);
+h3 {
+    text-align: justify;
+    font-size: 120%;
+    font-family: sans-serif;
+    text-indent: 20px;
+    line-height: 1.2;
+}
+
+#circles {
+  background-color: rgba(220, 235, 255, 1);
+  width: 95vw;
+  max-width: auto;
+}
+
+@media (min-width: 830px) {
+    body {
+      justify-content: center;
+        display: flex;
+    }
+    .container {
+      margin: 10px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      width: auto;
+      max-width: 1024px;
+    }
+    .divWorlds, divCircle {
+        display: inline-block;
+        float: left;
+    }
+    #circles {
+        width: 640px;
+    }
 }

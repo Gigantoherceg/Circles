@@ -4,17 +4,17 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <meta name="description" content="Random circles drawing">
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Circles randomizer</title>
 </head>
 <body>
-  <div id="cont1" Class="container">
-    <div class="canv canvCircle">
-      <canvas id="circles" height="480" width="640" style="border: 1px solid black"></canvas>
+<!--  <script src="scripts.js"></script> -->
+  <div Class="container">
+    <div class="divWorlds">
+        <h3>Ez egy sok-sok karikát tartalmazó rajzlap. Amikor frissítjük az oldalt, akkor mindig más sugarú, számú és színű karikák jelennek meg.</h3>
     </div>
-    <div id='circle' class="divWorlds">
-        <h3>Ez egy sok-sok karikát tartalmazó rajzlap.<br>
-        Amikor frissítjük az oldalt, akkor mindig más sugarú és színű karikák jelennek meg.</h3>            
+    <div class="divCircle">
+      <canvas id="circles" height="480" width="640" style="border: 1px solid black"></canvas>
     </div>
   </div>
 
@@ -44,6 +44,5 @@ for (j = 1; j <= circleNumber; j++) {
   circle(x,y,radius,'rgba('+r+','+g+','+b+','+a+')');  
 }
 </script>
-       
 </body>
 </html>
