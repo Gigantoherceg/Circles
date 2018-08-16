@@ -11,14 +11,17 @@
 <!--  <script src="scripts.js"></script> -->
   <div Class="container">
     <div class="divWorlds">
-        <h3>Ez egy sok-sok karikát tartalmazó rajzlap. Amikor frissítjük az oldalt, akkor mindig más sugarú, számú és színű karikák jelennek meg.</h3>
+        <h3>Ez egy sok-sok karikát tartalmazó rajzlap. A lenti gombra kattintva mindig más sugarú, számú és színű karikák jelennek meg.</h3>
+        <div><button class="button" onclick="document.getElementById('circles').innerHTML=draw()">Rajzolj!</button></div>
+        <h3 id='circlesDatas'></h3>
     </div>
     <div class="divCircle">
-      <canvas id="circles" height="480" width="640" style="border: 1px solid black"></canvas>
+      <canvas id="circles" height="480" width="640" style="border: 1px solid black">Sajnos az ön böngészője nem támogatja a canvas eszköz használatát.</canvas>
     </div>
   </div>
 
 <script>
+function draw(){
 var canvas = document.getElementById('circles');
 var context = canvas.getContext('2d');
 
@@ -26,8 +29,11 @@ var cW = canvas.width;
 var cH = canvas.height;
 var radius = Math.floor(Math.random() * 100)+10;
 var circleNumber = Math.floor(Math.random() * 100)+1;
-      
-function circle(x,y, radius, color) {  
+
+
+context.clearRect(0,0,640,480);
+
+function circle(x,y, radius, color) {
   context.strokeStyle = color;
   context.beginPath();
   context.arc(x,y,radius,0,2*Math.PI);
@@ -42,6 +48,9 @@ for (j = 1; j <= circleNumber; j++) {
   b = Math.floor(Math.random() * 255);
   a = (Math.floor(Math.random() * 10) + 1)/10;
   circle(x,y,radius,'rgba('+r+','+g+','+b+','+a+')');  
+}
+
+document.getElementById('circlesDatas').innerHTML='Karikák száma: ' + circleNumber + ', sugár: ' + radius + 'px';
 }
 </script>
 </body>
