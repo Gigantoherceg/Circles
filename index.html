@@ -12,8 +12,14 @@
   <div Class="container">
     <div class="divWorlds">
         <h3>Ez egy sok-sok karikát tartalmazó rajzlap. A lenti gombra kattintva mindig más sugarú, számú és színű karikák jelennek meg.</h3>
-        <div><button class="button" onclick="document.getElementById('circles').innerHTML=draw()">Rajzolj!</button></div>
+        <div><button class="button" onclick="document.getElementById('circles').innerHTML=randomDatas()">Rajzolj!</button></div>
         <h3 id='circlesDatas'></h3>
+        <h3 id="user"></h3>
+        <h3 id="Datas">
+      Karikák száma: <input id='circleNumb' type="number" name="circleNumber" min="2" max="300" value='8'><br>
+      Karikák sugara: <input id='rad' type="number" name="radius" min="2" max="300" value='80'>
+        <div><button class="button" onclick="document.getElementById('circles').innerHTML=draw(Number(rad.value), Number(circleNumb.value));">Rajzolj!</button></div>
+        </h3>
     </div>
     <div class="divCircle">
       <canvas id="circles" height="480" width="640" style="border: 1px solid black">Sajnos az ön böngészője nem támogatja a canvas eszköz használatát.</canvas>
@@ -21,17 +27,30 @@
   </div>
 
 <script>
-function draw(){
+
 var canvas = document.getElementById('circles');
 var context = canvas.getContext('2d');
 
 var cW = canvas.width;
 var cH = canvas.height;
+
+function randomDatas(){
 var radius = Math.floor(Math.random() * 100)+10;
 var circleNumber = Math.floor(Math.random() * 100)+1;
 
+draw(radius, circleNumber);
+}
+    
+function draw(radius, circleNumber){
 
 context.clearRect(0,0,640,480);
+
+if (radius<1 || circleNumber<1 || radius>100 || circleNumber>100) {
+    context.textAlign = "center";
+    context.font='20px Arial';
+    context.fillText("A megadott értékekkel nem lehet", 320, 230);
+    context.fillText("megrajzolni a karikákat.", 320, 250);
+} else {
 
 function circle(x,y, radius, color) {
   context.strokeStyle = color;
@@ -51,6 +70,9 @@ for (j = 1; j <= circleNumber; j++) {
 }
 
 document.getElementById('circlesDatas').innerHTML='Karikák száma: ' + circleNumber + ', sugár: ' + radius + 'px';
+document.getElementById('user').innerHTML='Persze, ha Ön szeretné a fenti adatokat megadni:';
+document.getElementById('Datas').style.visibility='visible';
+}
 }
 </script>
 </body>

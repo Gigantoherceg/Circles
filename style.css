@@ -64,11 +64,15 @@ body {
 }
 
 h3 {
+    margin-bottom: 1rem;
     text-align: justify;
     font-size: 120%;
     font-family: sans-serif;
-    text-indent: 20px;
     line-height: 1.2;
+}
+
+#Datas {
+    visibility: hidden;
 }
 
 #circles {
@@ -95,7 +99,7 @@ h3 {
     margin: 1rem auto;
 }
 
-@media (min-width: 830px) {
+@media (min-width: 1024px) {
     body {
       justify-content: center;
         display: flex;
@@ -111,6 +115,9 @@ h3 {
     .divWorlds, divCircle {
         display: inline-block;
         float: left;
+    }
+    .divWorlds {
+        min-width: 400px;
     }
     #circles {
         width: 640px;
